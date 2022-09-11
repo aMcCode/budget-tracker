@@ -10,19 +10,19 @@ request.onupgradeneeded = function(event) {
 request.onsuccess = function(event) {
     db = event.target.result;
     if (navigator.onLine) { upLoadBudgetTransaction();}
-  };
+};
 
-  request.onerror = function(event) {
+request.onerror = function(event) {
     console.log(event.target.errorCode);
-  };
+};
 
-  function saveRecord(record) {
+function saveRecord(record) {
     const transaction = db.transaction(['new_budget_transaction'], 'readwrite');
     const budgetObjectStore = transaction.objectStore('new_budget_transaction');
     budgetObjectStore.add(record);
-  }
+}
 
-  function upLoadBudgetTransaction() {
+function upLoadBudgetTransaction() {
     const transaction = db.transaction(['new_budget_transaction'], 'readwrite');
     const budgetObjectStore = transaction.objectStore('new_budget_transaction');
     const getAll = budgetObjectStore.getAll();
@@ -51,6 +51,6 @@ request.onsuccess = function(event) {
           .catch(err => { console.log(err); });
       }
     };
-  }
+}
 
-  window.addEventListener('online', upLoadBudgetTransaction);
+window.addEventListener('online', upLoadBudgetTransaction);
