@@ -45,7 +45,7 @@
     "short_name": "Budget Tracker",
     "orientation": "portrait",
     "display": "standalone",
-    "start_url": "../index.html",
+    "start_url": "/",
     "description": "An app that allows you to balance your budget.",
     "background_color": "#457d81",
     "theme_color": "#ffffff"
