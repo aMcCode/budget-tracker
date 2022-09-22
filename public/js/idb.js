@@ -40,7 +40,7 @@ function upLoadBudgetTransaction() {
           .then(response => response.json())
           .then(serverResponse => {
             if (serverResponse.message) {
-              throw new Error(serverResponse);
+              throw new Error(serverResponse.message);
             }
 
             const transaction = db.transaction(['new_budget_transaction'], 'readwrite');
