@@ -4,7 +4,7 @@ const indexedDB =
   window.webkitIndexedDB ||
   window.msIndexedDB ||
   window.shimIndexedDB;
-  
+
 let db;
 
 const request = indexedDB.open('budget_tracker', 1);
@@ -36,7 +36,7 @@ function upLoadBudgetTransaction() {
 
     getAll.onsuccess = function() {
       if (getAll.result.length > 0) {
-        fetch('/api/transaction', {
+        fetch('/api/transaction/bulk', {
           method: 'POST',
           body: JSON.stringify(getAll.result),
           headers: {
